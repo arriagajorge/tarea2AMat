@@ -1,0 +1,88 @@
+\documentclass[11pt, article]{article}
+\pagestyle{empty}
+% pre\'ambulo
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{mathtools}
+\usepackage{babel}
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage{vmargin}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+%\usepackage[spanish,es-tabla]{babel}
+\usepackage{subcaption}
+%\usepackage[utf8]{inputenc}
+
+\setpapersize{A4}
+\setmargins{1.5cm}             % margen izquierdo
+{1.5cm}                        % margen superior
+{18cm}                         % anchura del texto
+{25.42cm}                      % altura del texto
+{10pt}                         % altura de los encabezados
+{0cm}                          % espacio entre el texto y los encabezados
+{0pt}                          % altura del pie de página
+{1cm}                          % espacio entre el texto y el pie de página
+
+\title{Tarea 3}
+\author{Jorge Vasquez Arriaga}
+\date{}
+\renewcommand{\baselinestretch}{1.5}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+1. En cada inciso, determina si el conjunto es numerable o no numerable:\\
+
+$\hspace{0.5cm}$ \textbf{I}. $X_{1} = \left\lbrace\ A \subseteq \mathbb{N} : A \textnormal{ es finito} \right\rbrace$\\
+
+Afirmación I: $X_{1}$ es un conjunto numerable \\
+consideremos $\phi : X_{1} \rightarrow \left\lbrace 0,1\right\rbrace^\mathbb{N}$\\
+como la función indicadora, $ \mathcal{X}_{A} : \mathbb{N} \rightarrow \left\lbrace 0,1 \right\rbrace$\\
+ $\mathcal{X}_{A}= \left\{ \begin{array}{lcc}
+             1 &   si & n \in A \\
+             \\ 0 &  si & n \not\in A
+             \end{array}
+   \right.$\\
+sabemos que dicha función es una biyección entre la potencia de los naturales y las sucesiones de ceros y unos, sin embargo aquí estamos restringiendo el dominio a solo subconjuntos finitos, y como es una restriccion de una función biyectiva entonces dicha función sera biyectiva\\
+ahora bien la imagen seran las sucesiones a las que a partir de un numero natural fijo los siguientes términos son solo ceros,
+definamos $S_{0}$ = $\left\lbrace (x_{n})_{n \geq 1} \in \left\lbrace0,1\right\rbrace^\mathbb{N}:\exists N \in \mathbb{N} \left(\forall  n \in \mathbb{N}_{\geq N} \textnormal{ } x_{n}=0 \right) \right\rbrace$\\
+las sucesiones de $S$ contiene términos infinitos, sin embrago podemos hacer una nueva biyección entre $S_{0}$ y $S_{0}^{N}$ donde $S_{0}^{N}$ son las sucesiones con términos finitos, ya que para cada sucesión existe N para la cual los siguientes términos son ceros, estos ceros los podemos omitir\\
+es decir sea $s_{n} \in S$ mandamos $s_{n}$ a la sucesión $s_{n}^{N}$ $\in s_{0}^{N}$ de N terminos, donde N es el natural al partir del cual los demás términos son ceros en $s_{0}$, y los N términos son los mismos que $s_{0}$, esta es una función biyectiva pues si tenemos una sucesión $s_{n}^{N}$ $\in S_{0}^{N}$, la podemos mandar a $S_{0}$ añadiendo ceros en los términos posteriores al N-ésimo \\
+ahora bien tenemos sucesiones finitas de ceros y unos, notemos que cada sucesión la podemos ver como un numero binario, es decir si la sucesión $s_{0} = s_{0}^{N}(1),s_{0}^{N}(2),...,s_{0}^{N}(N)$ lo representamos con el número donde el primer digito es $s_{0}^{N}(1)$, el segundo $s_{0}^{N}(2)$, el n-ésimo $s_{0}^{N}(n)$ donde $n \leq N$, denotamos $N_{\left\lbrace0,1\right\rbrace}$ a este conjunto, por como definimos esta función es inyectiva, ya que cada sucesión corresponde con un número binario\\
+ahora como los números binarios los podemos convertir a binarios y viceversa, es decir hay una biyección, de lo cual podemos concluir que la afirmación es cierta pues $X_{1} \sim S_{0} \sim S_{0}^{N} \leq N_{\left\lbrace0,1\right\rbrace} \sim \mathbb{N}$, es decir $X_{1}$ es numerable.\\
+
+
+
+$\hspace{0.5cm}$ \textbf{II}. $X_{2} = \left\lbrace f : \mathbb{N} \rightarrow \mathbb{N} : f \textnormal{ es biyectiva} \right\rbrace$\\
+
+Afirmación II: $X_{2}$ es un conjunto no numerable\\
+procedamos por contradicción, supongamos que el conjunto es numerable, entonces existe una función $g$ $g:\mathbb{N} \rightarrow X_{2}$  tal que $g$ es biyectiva, es decir exite un etiquetado tal que,
+$g(1)=f_{1}$, $g(2)=f_{2},..$\\
+sabemos que $f_{i}$ es biyectiva, por lo que podemos escribir su regla de correspondencia como $f_{i}(1)=a_{i1}$, $f_{i}(2)=a_{i2},...$ donde cada $a_{ij}$ es distinta con $j\in\mathbb{N}$, en general $f_{i}(j)=a_{i,j}$\\ 
+consideremos la función $h: \mathbb{N} \rightarrow \mathbb{N}$ dada por la siguiente correpondecia\\
+$h(1)$ = $min\left\lbrace x \in \mathbb{N} : x \not= f_{1}(1) \wedge x\not=h(x)(\forall x<1) \right\rbrace $\\
+$h(2)$ = $min\left\lbrace x \in \mathbb{N} : x \not= f_{2}(2) \wedge x\not=h(x)(\forall x<2) \right\rbrace $\\
+en general $h(i)$ = $min\left\lbrace x \in \mathbb{N} : x \not= f_{i}(i) \wedge x\not=h(x)(\forall x<i) \right\rbrace$\\
+veamos que $h$ no pertence a ningún $f_{i}$ pues no tienen la misma regla correspondencia, ya que por construcción de $h$ $h(i)\not= f_{i}(i)(\forall i \in \mathbb{N})$ 
+ahora es inyectiva ya que por construcción $h(i) \not= h(x)(\forall x<i$ es decir a cada natural le corresponde un natural diferente\\
+observación: queremos ver que es sobreyectiva, tenemos que probar que $rango(f)=\mathbb{N}$, sin embargo puede pasar que $a_{0}=a_{ii}(\forall i \geq n_0\in \mathbb{N})$ de lo cual no siempre podemos asegurar que exista $i \in \mathbb{N}$ tal que $h(i)=a_{0}$, si este fuera el caso podemos definir $h_{1}: \mathbb{N} \rightarrow \mathbb{N}$ dada por la siguiente regla de correspondencia\\
+$h_k(i)= \left\{ \begin{array}{lcc}
+             h(i) &   si  & i < a_{0} \\
+             \\ h(i+1) &  si  & i = a_{0} \\
+             \\ a_{0} &  si &   i = a_{0} + 1\\
+             \\ h(i) & si & i > a_{0} + 2\\
+             \end{array}
+   \right.$\\
+lo que hacemos con $h_{k}$ es intercambiar el orden entre $f_{a_{0}}$ y $f_{a_{0}+1}$, por lo que la función conserva las propiedades de $h$, sigue siendo inyectiva y diferente de cualquier $f_{i}$, pero ahora contiene en su rango a $n_0$\\
+ahora vemos que en cualquiera de los casos se puede construir una función sobreyectiva, supongamos que existe $b\in \mathbb{N}$ tal que para ningun $ a\in \mathbb{N}$ se tiene que $h(a)=b$, si sucede esto quiere decir que $b$ nunca es mínimo o que $b = f_{i}(i)(\forall i \geq n_0\in \mathbb{N})$\\
+sabemos que $b$ sera mínimo despues de las primeras b evaluaciones en h, entonces lo que puede ocurrir es que $b = f_{i}(i)(\forall i \geq n_0\in \mathbb{N})$, pero por la observación podemos construir una nueva función $h_{k}(i)$ la cual contiene en su rango a $b$, por lo que existe una función sobreyectiva\\
+de lo anterior, probamos que podemos construir una función inyectiva y sobreyectiva es decir biyectiva, que no esta en el dominio de la función $g$, lo cual es una contradicción, ya que supisimos que $g$ era biyectiva.\\
+Por lo tanto $X_{2}$ es un conjunto no numerable
+
+
+\end{document}
